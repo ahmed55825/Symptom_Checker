@@ -1,0 +1,533 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  background-color: #f1f1f1;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #3D3D3D;
+  color: #fff;
+  padding: 4px 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img{
+  width: 200px;
+  height: 60px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 25px;
+}
+
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
+.menu a:hover {
+  color: #8FCE00;
+  background-color: transparent;
+  border: none;
+}
+
+.menu .post_btn {
+  padding: 0;
+  margin: 0;
+  background-color: #3d3d3d;
+}
+.menu .post_btn:hover {
+  color: #8FCE00;
+  background-color: #3d3d3d;
+}
+.menu form {
+  padding: 0;
+  margin: 0;
+  background-color: #3d3d3d;
+}
+
+header .account a{
+  color: white;
+  margin-right: 2rem;
+}
+header .user{
+  border-color: white;
+}
+header .account a:hover{
+  color: #8FCE00;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+section {
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Showcase */
+
+#showcase {
+  background: url('/public/imgs/Showcase.webp') no-repeat center center/cover;
+  height: 100vh; 
+  color: white;
+}
+#showcase .showcase_contents{
+  display: flex;
+flex-direction: column;
+text-align: center;
+justify-content: center;
+align-items: center;
+height: 100vh;
+padding: 0 2rem;
+margin-top: 4.7rem;
+background-color: rgba(0, 0, 0, 0.5);
+/* position */
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+}
+
+#showcase h1 {
+  font-size: 3rem;
+}
+#showcase span{
+  color: #8FCE00;
+}
+
+#showcase p {
+  color: #fff;
+  font-size: 1.3rem;
+  margin-bottom: 46px;
+  padding: 3rem 0;
+}
+
+#showcase .btn {
+  background-color: transparent;
+  border: #8FCE00 solid 2px;
+  color: #fff;
+  padding: 12px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#showcase .btn:hover,#showcase a:hover {
+  background-color: #8FCE00;
+  border: black solid 2px;
+  color: black;
+}
+
+
+/* About */
+
+#about{
+  display: flex
+}
+
+#about div {
+  flex: 1;
+  /* padding: 1rem 3.5rem; */
+}
+
+#about .about-text {
+  padding: 1.5rem 1rem 0 0;
+}
+#about .about-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+#about .about-text p{
+  margin: 2rem 0 3rem 0;
+}
+
+.about-text .btn {
+  margin-top: 2rem;
+  background-color: transparent;
+  border: black solid 2px;
+  color: black;
+  padding: 12px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.about-text .btn:hover {
+  background-color: #8FCE00;
+  border: black solid 2px;
+  color: white;
+}
+
+#about .about-image{
+  background: url('/public/imgs/About.jpg') no-repeat center center/cover;
+  height: 45vh;
+  padding: 1rem 1.5rem;
+}
+
+
+/* Services */
+
+#services {
+text-align: center;
+padding: 40px 0;
+}
+
+#services h2{
+font-size: 2.5rem;
+margin-bottom: 3rem;
+}
+#services h2 span {
+color: #8FCE00;
+}
+
+.services_container {
+display: flex; 
+justify-content: center;
+gap: 20px;
+text-align: center;
+}
+
+#services .box {
+flex: 1;
+background-color: #f7f7f7;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+}
+
+#services .box img {
+max-width: 100%;
+border-radius: 8px;
+margin-bottom: 20px;
+transition: transform 0.3s ease-in-out;
+}
+#services .box img:hover {
+transform: scale(1.05);
+}
+
+#services .box h3 {
+margin-bottom: 10px;
+}
+#services .box .h3{
+text-decoration: none;
+color: black;
+}
+
+#services .box p {
+color: #666;
+}
+
+
+
+/* Clients */
+#clients {
+text-align: center;
+padding: 40px 0;
+}
+
+#clients h2 {
+font-size: 2.5rem;
+margin-bottom: 4rem;
+}
+#clients span {
+color: #8FCE00;
+}
+
+.clients_container {
+display: flex;
+justify-content: center;
+gap: 2.5rem;
+}
+
+.client_box {
+text-align: center;
+}
+
+.client_box a img {
+width: 180px;
+height: 200px;
+border-radius: 50%;
+object-fit: cover;
+transition: transform 0.3s ease-in-out;
+display: block;
+margin-bottom: 10px;
+transform: scale(1);
+}
+
+.client_box a img:hover {
+transform: scale(1.08);
+}
+
+.client_box p {
+font-size: 14px;
+color: black;
+margin: 0;
+}
+.client_box p:hover{
+color: #8FCE00;
+}
+.client_box a {
+list-style: none;
+text-decoration: none;
+}
+
+
+
+/* Main Contact */
+
+main {
+padding: 40px;
+}
+
+.contact {
+background-color: #fff;
+padding: 40px;
+}
+
+.contact h2 {
+display: flex;
+justify-content: center;
+font-size: 2.5rem;
+margin-bottom: 3rem;
+}
+
+.testimonials-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+.testimonial {
+width: 300px;
+margin: 20px;
+text-align: center;
+}
+
+.testimonial-icon i {
+font-size: 36px;
+margin-bottom: 10px;
+background-color: #8FCE00;
+border-radius: 50%;
+padding: 1.2rem;
+}
+
+.testimonial h3 {
+font-size: 18px;
+margin: 1.5rem 0;
+}
+
+.testimonial p {
+font-size: 16px;
+}
+
+.testimonial .pad {
+padding: 0.5rem 0;
+}
+
+
+/* Sign up */
+
+#sign-up h2{
+display: flex;
+justify-content: center;
+margin-bottom: 3.5rem;
+font-size: 2.5rem;
+}
+#sign-up form {
+margin: 0;
+padding: 0;
+display: inline;
+background-color: transparent;
+}
+#sign-up .sign {
+margin-left: 39.5%;
+margin-right: 2.5rem;
+}
+
+#sign-up button {
+margin-top: 2rem;
+background-color: transparent;
+border: black solid 2px;
+color: black;
+padding: 0.8rem 3rem;
+font-size: 16px;
+text-decoration: none;
+border-radius: 4px;
+transition: background-color 0.3s ease;
+}
+
+#sign-up button:hover {
+background-color: #8FCE00;
+border: black solid 2px;
+color: white;
+}
+
+/* Footer */
+
+#footer{
+  margin: 0; padding: 0;
+  text-transform: capitalize;
+}
+
+.footer .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer .box-container .box{
+  flex: 1 1 1.2rem;
+}
+
+.footer .box-container .box h3{
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+}
+
+.footer .box-container .box a{
+  display: block;
+  color: #666;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  color: white;
+  list-style: none;
+}
+
+.footer .box-container .box a:hover{
+  color: #8FCE00;
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+}
+
+.footer .box-container .box img{
+  display: inline-block;
+  height: 25%;
+  width: 80%;
+  cursor: pointer;
+}
+
+.footer .credit{
+  text-align: center;
+  padding: 1.5rem;
+  /* margin-top: 1.5rem; */
+  padding-top: 2.5rem;
+  font-size: 1.2rem;
+  color: white;
+  border-top: .1rem solid rgba(0, 0, 0, 0.1);
+}
+
+.footer .credit span{
+  color: #8FCE00;
+}
+
+#footer {
+padding: 0 6rem;
+background-color: #333;
+}
+
+
+/* Post Page */
+
+main {
+  padding: 80px 0;
+  background-color: #f1f1f1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #555;
+}
+
+.back-button {
+  display: inline-block;
+  margin-bottom: 20px; /* Adjusted margin */
+  color: #333;
+  font-size: 16px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.back-button:hover {
+  opacity: 0.7; 
+}

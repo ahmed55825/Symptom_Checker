@@ -1,0 +1,79 @@
+/* About us */
+
+#contact h1, #faq h2{
+    font-size: 2.5rem;
+}
+#contact span, #faq h2 > span {
+    color: #8FCE00;
+}
+#contact p {
+    margin-bottom: 3rem;
+    line-height: 1.6rem;
+}
+#contact a {
+    text-decoration: none;
+    color: black;
+    margin-bottom: 2rem;
+}
+#contact a {
+    margin-top: 2rem;
+    background-color: transparent;
+    border: black solid 2px;
+    color: black;
+    padding: 12px 50px;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #contact a:hover {
+    background-color: #8FCE00;
+    border: black solid 2px;
+    color: white;
+  }
+
+
+
+  /* FAQs */
+
+  #faq .p {
+    margin: 1.5rem 0 2rem 0;
+  }
+
+  .accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+  }
+  
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+  
+  .active:after {
+    content: "\2212";
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }

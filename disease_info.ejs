@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Disease Info</title>
+    <link rel="stylesheet" href="../public/css/form.css" />
+  </head>
+
+  <body>
+    <h1>Please search for a Disease with Symptoms</h1>
+    <form action="/disease_info/added" method="POST">
+      <label for="disease_name">Symptom Name:</label>
+      <input type="text" id="disease_name" name="disease_name" required />
+      <br />
+      <br />
+
+      <button type="submit">Add Symptom</button>
+    </form>
+
+    <a href="/" class="back-button">Back to Home</a>
+
+    <% if (justSignedUp) { %>
+    <script>
+      const userId = "<%= user_id %>";
+      alert(`Welcome! Your user_id is: ${userId}. Please keep it safe.`);
+    </script>
+    <% } %>
+  </body>
+</html>

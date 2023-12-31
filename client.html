@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/15c7b74641.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Symptom Checker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-x6J+0rPBw6UaGQuYFtknFqOoFt+udz/42dn4F4FUG6kq8q1It+u2LW/0Mf4g9axnRJZqal0rCS6e/GW1VeEeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/about.css" />
+    <link rel="stylesheet" href="/public/css/clients.css" />
+    <link rel="stylesheet" href="/public/css/contact.css" />
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="32x32"
+      href="/public/imgs/New Logo 2.png"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <div class="logo">
+          <!-- <img src="/website/imgs/logo.jpg" alt="Logo"> -->
+          <!-- <a href="#showcase"
+            ><h1><span>Symptom</span> Checker</h1></a
+          > -->
+          <a href="/"><img src="/public/imgs/New Logo 2.png" alt=""></a>
+        </div>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client">Clients</a></li>
+        <li><a href="/contact">Contact</a></li>
+
+          <li>
+            <form action="/view-post" method="get">
+              <button type="submit" class="post_btn">Post</button>
+            </form>
+          </li>
+        </ul>
+        <div class="account">
+          <!-- <a href="#sign-up">Account</a> -->
+          <a href="/#sign-up"><i class="fas fa-2x fa-user-tie"></i></a>
+        </div>
+      </nav>
+    </header>
+
+
+
+
+
+    <div class="slideshow-container">
+
+        <h1>OUR <span>CLIENTS</span></h1>
+        
+        <!-- Testimonial 1 -->
+        <div class="mySlides">
+            <img src="/public/imgs/Client 1.jpg" alt="John Keats">
+            <div class="testimonial-content">
+                <p class="author">Emily Thompson</p>
+                <q>A diligent student with a keen interest in health sciences, always looking to understand and address medical concerns proactively.</q>
+                
+            </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="mySlides">
+            <img src="/public/imgs/Client 2.jpg" alt="Ernest Hemingway">
+            <div class="testimonial-content">
+                <p class="author">Sophia Martinez</p>
+                <q>An energetic entrepreneur with a passion for wellness, often seeking insights to balance her busy lifestyle and prioritize her health.</q>
+                
+            </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="mySlides">
+            <img src="/public/imgs/Client 3.jpg" alt="Thomas A. Edison">
+            <div class="testimonial-content">
+                <p class="author">Liam Johnson</p>
+                <q>An active professional in the tech industry, frequently travels and seeks efficient health solutions to maintain his demanding schedule.</q>
+                
+            </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="mySlides">
+            <img src="/public/imgs/Client 4.jpg" alt="Thomas A. Edison">
+            <div class="testimonial-content">
+                <p class="author">Ethan Davis</p>
+                <q>A dedicated athlete with a focus on peak performance, keenly interested in tools that help monitor and optimize his physical well-being.</q>
+                
+            </div>
+        </div>
+
+        <!-- Navigation buttons -->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+        
+    </div>
+    
+    <!-- Dot container for indicators -->
+    <div class="dot-container">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+        <span class="dot" onclick="currentSlide(4)"></span> 
+    </div>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+
+
+
+<!-- footer section starts -->
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>quick links</h3>
+      <a href="/">home</a>
+      <a href="/about">about</a>
+      <a href="/services">Services</a>
+      <a href="/client">Clients</a>
+      <a href="/contact">Contact</a>
+      <a href="/view-post">Post</a>
+    </div>
+
+    <div class="box">
+      <h3>extra links</h3>
+      <a href="#sign-up">Account</a>
+      <a href="/sign-up">sign-up</a>
+      <a href="/log-in">Log-in</a>
+    </div>
+
+    <div class="box">
+      <h3>locations</h3>
+      <a href="">Pakistan</a>
+      <a href="">USA</a>
+      <a href="">Canada</a>
+      <a href="">France</a>
+      <a href="">Germany</a>
+    </div>
+
+    <div class="box">
+      <h3>contact info</h3>
+      <a href="">+92 312 815 2313</a>
+      <a href="">mukhtarahmed808689@gmail.com</a>
+      <a href="">Quetta, pakistan 274837 </a>
+      <img src="/public/imgs/payments.webp" alt="" />
+    </div>
+  </div>
+
+  <div class="credit">
+    Created By <span>Mukhtar Ahmed & Maaz Ahmed</span>| 2023 All Rights
+    Reserved
+  </div>
+</section>
+<!-- footer section ends -->
+  </body>
+</html>

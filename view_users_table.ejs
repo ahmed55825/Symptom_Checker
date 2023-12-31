@@ -1,0 +1,256 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Table</title>
+    <link rel="stylesheet" href="../public/css/form.css" />
+
+    <style>
+      .delete-btn {
+        width: 5rem;
+        padding: 10px;
+        background-color: #c9220c;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Table</h2>
+    <table>
+      <tr>
+        <th>user_id</th>
+        <th>Name</th>
+        <th>age</th>
+        <th>CNIC</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+
+      <% if(empty) { %>
+      <h3>No user data avaliable</h3>
+      <% } else{ %> <% users.forEach((user) => { %>
+      <tr>
+        <td><%= user.user_id %></td>
+        <td><%= user.Name %></td>
+        <td><%= user.Age %></td>
+        <td><%= user.CNIC %></td>
+        <td><%= user.Phone %></td>
+        <td><%= user.role %></td>
+        <td>
+          <button class="delete-btn" data-user-id="<%= user.user_id %>">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <% }); %> <% } %>
+    </table>
+
+    <a href="/admin_view" class="back-button">Go Back</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll(".delete-btn");
+
+        deleteButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var userId = this.getAttribute("data-user-id");
+
+            deleteVendor(userId);
+          });
+        });
+
+        function deleteVendor(userId) {
+          fetch("/admin/delete_user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user_id: userId }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+
+              console.log("Delete successful:");
+              location.reload();
+            })
+
+            .catch((error) => {
+              console.error("Error deleting vendor:", error);
+            });
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Table</title>
+    <link rel="stylesheet" href="../public/css/form.css" />
+
+    <style>
+      .delete-btn,
+      .edit-btn,
+      .update-btn {
+        width: 5rem;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .delete-btn {
+        background-color: #c9220c;
+        color: #fff;
+        border: none;
+      }
+
+      .edit-btn,
+      .update-btn {
+        background-color: #8fce00;
+        color: black;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Table</h2>
+    <table>
+      <tr>
+        <th>user_id</th>
+        <th>Name</th>
+        <th>age</th>
+        <th>CNIC</th>
+        <th>Phone</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+
+      <% if(empty) { %>
+      <h3>No user data available</h3>
+      <% } else { %> <% users.forEach((user) => { %>
+      <tr data-user-id="<%= user.user_id %>">
+        <td><span class="editable-cell"><%= user.user_id %></span></td>
+        <td><span class="editable-cell"><%= user.Name %></span></td>
+        <td><span class="editable-cell"><%= user.Age %></span></td>
+        <td><span class="editable-cell"><%= user.CNIC %></span></td>
+        <td><span class="editable-cell"><%= user.Phone %></span></td>
+        <td><span class="editable-cell"><%= user.role %></span></td>
+        <td>
+          <button class="delete-btn" data-user-id="<%= user.user_id %>">
+            Delete
+          </button>
+          <button class="edit-btn">Edit</button>
+          <button class="update-btn">Update</button>
+        </td>
+      </tr>
+      <% }); %> <% } %>
+    </table>
+
+    <a href="/admin_view" class="back-button">Go Back</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var deleteButtons = document.querySelectorAll(".delete-btn");
+        var editButtons = document.querySelectorAll(".edit-btn");
+        var updateButtons = document.querySelectorAll(".update-btn");
+
+        deleteButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var userId = this.getAttribute("data-user-id");
+
+            deleteUser(userId);
+          });
+        });
+
+        editButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var row = this.closest("tr");
+            console.log(row);
+
+            makeCellsEditable(row);
+          });
+        });
+
+        updateButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var row = this.closest("tr");
+            var userId = row.getAttribute("data-user-id");
+            console.log("test:" + userId);
+
+            updateUser(row, userId);
+          });
+        });
+
+        function deleteUser(userId) {
+          fetch("/admin/delete_user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ user_id: userId }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+
+              console.log("Delete successful:");
+              location.reload();
+            })
+            .catch((error) => {
+              console.error("Error deleting user:", error);
+            });
+        }
+
+        function makeCellsEditable(row) {
+          var cells = row.querySelectorAll(".editable-cell");
+          cells.forEach(function (cell) {
+            cell.contentEditable = true;
+            cell.style.background = "#ffffcc";
+          });
+        }
+
+        function updateUser(row, userId) {
+          var cells = row.querySelectorAll(".editable-cell");
+          var updatedData = {
+            user_id: userId,
+            new_name: cells[1].innerText,
+            new_age: cells[2].innerText,
+            new_cnic: cells[3].innerText,
+            new_phone: cells[4].innerText,
+            new_role: cells[5].innerText,
+          };
+
+          console.log(updatedData);
+
+          fetch("/admin/update_user", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+
+              console.log("Update successful:");
+              // location.reload();
+            })
+            .catch((error) => {
+              console.error("Error updating user:", error);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

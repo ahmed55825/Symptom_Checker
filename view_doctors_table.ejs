@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Table</title>
+    <link rel="stylesheet" href="../public/css/form.css" />
+
+    <style>
+      .delete-btn,
+      .edit-btn,
+      .update-btn {
+        width: 5rem;
+        padding: 10px;
+        cursor: pointer;
+      }
+
+      .delete-btn {
+        background-color: #c9220c;
+        color: #fff;
+        border: none;
+      }
+
+      .edit-btn,
+      .update-btn {
+        background-color: #8fce00;
+        color: black;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Doctor Table</h2>
+
+    <table>
+      <tr>
+        <th>Doctor_id</th>
+        <th>Name</th>
+        <th>age</th>
+        <th>user_id</th>
+        <th>speciality</th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% if(empty) { %>
+      <h3>No doctor data avaliable</h3>
+      <% } else{ %> <% doctors.forEach((doctor) => { %>
+
+      <tr data-doctor-id="<%= doctor.doctor_id %>">
+        <td><%= doctor.doctor_id %></td>
+        <td class="editable-cell"><%= doctor.Name %></td>
+        <td class="editable-cell"><%= doctor.Age %></td>
+        <td><%= doctor.user_id %></td>
+        <td><%= doctor.speciality_name %></td>
+        <td>
+          <button class="edit-btn">Edit</button>
+          <button class="update-btn">Update</button>
+          <button class="delete-btn" data-doctor-id="<%= doctor.doctor_id %>">
+            Delete
+          </button>
+        </td>
+      </tr>
+
+      <% }); %> <% } %>
+    </table>
+
+    <a href="/admin_view" class="back-button">Go Back</a>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var editButtons = document.querySelectorAll(".edit-btn");
+        var updateButtons = document.querySelectorAll(".update-btn");
+        var deleteButtons = document.querySelectorAll(".delete-btn");
+
+        editButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var row = this.closest("tr");
+            makeCellsEditable(row);
+          });
+        });
+
+        updateButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var row = this.closest("tr");
+            var doctorId = row.getAttribute("data-doctor-id");
+            updateDoctor(row, doctorId);
+          });
+        });
+
+        deleteButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            var doctorId = this.getAttribute("data-doctor-id");
+
+            deleteDoctor(doctorId);
+          });
+        });
+
+        function makeCellsEditable(row) {
+          var cells = row.querySelectorAll(".editable-cell");
+          cells.forEach(function (cell) {
+            cell.contentEditable = true;
+            cell.style.background = "#ffffcc";
+          });
+        }
+
+        function updateDoctor(row, doctorId) {
+          var cells = row.querySelectorAll(".editable-cell");
+          var updatedData = {
+            doctor_id: doctorId,
+            new_doctor_name: cells[0].innerText,
+            doctor_age: cells[1].innerText,
+          };
+
+          fetch("/admin/update_doctor", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedData),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              console.log("Update successful:");
+              location.reload();
+            })
+            .catch((error) => {
+              console.error("Error updating doctor:", error);
+            });
+        }
+
+        function deleteDoctor(doctorId) {
+          fetch("/admin/delete_doctor", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ doctor_id: doctorId }),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+
+              console.log("Delete successful:");
+              location.reload();
+            })
+
+            .catch((error) => {
+              console.error("Error deleting vendor:", error);
+            });
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disease Table</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      a.button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #8fce00;
+        color: black;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+
+      a.button:hover {
+        background-color: #8fce00;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>Symptom Name</th>
+        <th>Diseases</th>
+        <th>Cure</th>
+        <% data.map((item) => { %>
+        <th></th>
+        <% }); %>
+      </tr>
+
+      <tr>
+        <td><%= data[0].symptom_name %></td>
+        <td><%= data[0].Description %></td>
+
+        <% data.map((item) => { %>
+        <td><%= item.name %></td>
+        <% }); %>
+      </tr>
+    </table>
+
+    <br />
+    <button><a href="/disease_info" class="button">Go Back</a></button>
+  </body>
+</html>

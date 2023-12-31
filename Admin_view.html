@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/css/form.css" />
+
+    <title>Admin view Table</title>
+
+    <style>
+      .form,
+      .section-heading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Admin view</h1>
+
+    <button class="display-btn">Add new Doctor</button>
+
+    <h2 class="section-heading">Add new Doctor</h2>
+    <form action="/admin/new_doctor" method="POST" class="form">
+      <label for="doctor_name"> Doctor Name:</label>
+      <input type="text" id="doctor_name" name="doctor_name" />
+
+      <label for="doctor_age">Doctor age:</label>
+      <input type="number" id="doctor_age" name="doctor_age" />
+
+      <label for="doctor_phone">Doctor phone number:</label>
+      <input type="text" id="doctor_phone" name="doctor_phone" />
+
+      <label for="doctor_CNIC">Doctor CNIC:</label>
+      <input type="text" id="doctor_CNIC" name="doctor_CNIC" />
+
+      <label for="doctor_speciality">doctor speciality</label>
+      <select name="doctor_speciality" id="doctor_speciality">
+        <option value="1">Cardiology</option>
+        <option value="2">Neurology</option>
+        <option value="3">Oncology</option>
+        <option value="4">Gastroenterology</option>
+        <option value="5">Orthopedics</option>
+        <option value="6">Dermatology</option>
+      </select>
+
+      <button class="btn" type="submit">Add doctor</button>
+    </form>
+
+    <br /><br /><br />
+
+    <a href="/admin/view-doctors"><button>View Doctor List</button></a> <br />
+    <a href="/admin/view-users"><button>View users List</button></a>
+
+    <br /><br /><br />
+    <a href="/" class="back-button">Go Back</a>
+
+    <script>
+      const form = document.querySelector(".form");
+      const displayBtn = document.querySelector(".display-btn");
+
+      displayBtn.addEventListener("click", () => {
+        displayBtn.style.display = "none";
+        form.style.display = "block";
+      });
+    </script>
+  </body>
+</html>

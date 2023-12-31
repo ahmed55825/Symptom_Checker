@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/15c7b74641.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Symptom Checker</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-x6J+0rPBw6UaGQuYFtknFqOoFt+udz/42dn4F4FUG6kq8q1It+u2LW/0Mf4g9axnRJZqal0rCS6e/GW1VeEeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="stylesheet" href="/public/css/about.css" />
+    <link rel="stylesheet" href="/public/css/contact.css" />
+    <link
+      rel="icon"
+      type="image/jpg"
+      sizes="32x32"
+      href="/public/imgs/New Logo 2.png"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header>
+      <nav>
+        <div class="logo">
+          <!-- <img src="/website/imgs/logo.jpg" alt="Logo"> -->
+          <!-- <a href="#showcase"
+            ><h1><span>Symptom</span> Checker</h1></a
+          > -->
+          <a href="/"><img src="/public/imgs/New Logo 2.png" alt=""></a>
+        </div>
+        <ul class="menu">
+          <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/client">Clients</a></li>
+        <li><a href="/contact">Contact</a></li>
+          <li>
+            <form action="/view-post" method="get">
+              <button type="submit" class="post_btn">Post</button>
+            </form>
+          </li>
+        </ul>
+        <div class="account">
+          <!-- <a href="#sign-up">Account</a> -->
+          <a href="/#sign-up"><i class="fas fa-2x fa-user-tie"></i></a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Contact us -->
+
+    <section id="contact">
+        <h1>Contact<span> US</span></h1>
+        <p>
+            Within our Symptom Checker software, the "Contact Us" page is a beacon of support and clarity. We've designed this platform to be more than just a communication tool—it's a bridge connecting users to the heart of our service. Whether you're facing uncertainty about a symptom, have inquiries about our platform's features, or simply want to share feedback, this space welcomes you. Our team, deeply rooted in understanding and expertise, is committed to responding with compassion and precision. Every message you send isn't just read; it's valued, analyzed, and acted upon. Our goal? To ensure that every user feels heard, understood, and supported in their health journey. By reaching out, you're not just seeking answers—you're forging a partnership with a community dedicated to ensuring clarity, trust, and the utmost in user satisfaction.
+        </p>
+        <a href="#team">More Info</a>
+    </section>
+
+
+    <!-- FAQs -->
+    <section id="faq">
+        <h2>Frequently Asked <span>Questions</span></h2>
+        <p class="p">Here is a list of some important questions asked by users.</p>
+
+        <button class="accordion">Can I search a symptom without Account?</button>
+        <div class="panel">
+           <p>No, You cannot search without Account. You can easily make one on the sign up page.</p>
+        </div> 
+
+        <button class="accordion">As I doctor can I be regiestered in this website?</button>
+        <div class="panel">
+         <p>Yes, you will have to give an inerview according to your speciality. If you are eligible you will be seleted.</p>
+        </div>
+
+        <button class="accordion">Who can see the post created by Doctors?</button>
+        <div class="panel">
+          <p>Everyone who has account (either general or professional) can check see the posts.</p>
+        </div>
+    </section>
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+              panel.style.maxHeight = null;
+            } else {
+              panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+          });
+        }
+        </script>
+
+
+
+<!-- footer section starts -->
+<section class="footer" id="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>quick links</h3>
+      <a href="/">home</a>
+      <a href="/about">about</a>
+      <a href="/services">Services</a>
+      <a href="/client">Clients</a>
+      <a href="/contact">Contact</a>
+      <a href="/view-post">Post</a>
+    </div>
+
+    <div class="box">
+      <h3>extra links</h3>
+      <a href="#sign-up">Account</a>
+      <a href="/sign-up">sign-up</a>
+      <a href="/log-in">Log-in</a>
+    </div>
+
+    <div class="box">
+      <h3>locations</h3>
+      <a href="">Pakistan</a>
+      <a href="">USA</a>
+      <a href="">Canada</a>
+      <a href="">France</a>
+      <a href="">Germany</a>
+    </div>
+
+    <div class="box">
+      <h3>contact info</h3>
+      <a href="">+92 312 815 2313</a>
+      <a href="">mukhtarahmed808689@gmail.com</a>
+      <a href="">Quetta, pakistan 274837 </a>
+      <img src="/public/imgs/payments.webp" alt="" />
+    </div>
+  </div>
+
+  <div class="credit">
+    Created By <span>Mukhtar Ahmed & Maaz Ahmed</span>| 2023 All Rights
+    Reserved
+  </div>
+</section>
+<!-- footer section ends -->
+  </body>
+</html>
